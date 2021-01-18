@@ -10,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    classic: null,
+    likeCount: 0,
+    likeStatus: false
   },
 
   /**
@@ -18,7 +20,11 @@ Page({
    */
   onLoad: function (options) {
     classicModel.getLatest((res) => {
-      console.log('res', res)
+      this.setData({
+        classic: res,
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
     })
   },
 

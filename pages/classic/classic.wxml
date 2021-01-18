@@ -1,3 +1,5 @@
 <view>
-  <text>666777</text>
+  <view>
+    <v-like like="{{likeStatus}}" count="{{likeCount}}" />
+  </view>
 </view>
