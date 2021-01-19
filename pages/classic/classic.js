@@ -2,7 +2,12 @@ import {
   ClassicModel
 } from '../../models/classic.js'
 
+import {
+  LikeModel
+} from '../../models/like.js'
+
 const classicModel = new ClassicModel()
+const likeModel = new LikeModel()
 
 Page({
 
@@ -24,6 +29,18 @@ Page({
         classic: res,
         likeCount: res.fav_nums,
         likeStatus: res.like_status
+      })
+    })
+  },
+
+  onLike(event) {
+    const behavior = event.detail.behavior
+    likeModel.like(behavior, this.data.classic.id, this.data.classic.type, () => {
+      let likeCount = this.data.likeCount
+      let likeStatus = this.data.likeStatus
+      this.setData({
+        likeCount: behavior == 'like' ? likeCount + 1 : likeCount - 1,
+        likeStatus: !likeStatus
       })
     })
   },

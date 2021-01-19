@@ -29,7 +29,7 @@ class HTTP {
 				}
 			},
 			fail: (err) => {
-				this._show_error(error_code)
+				this._show_error(1)
 			}
 		})
 	}
