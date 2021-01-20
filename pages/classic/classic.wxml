@@ -1,4 +1,5 @@
-<view>
-    <v-like like="{{likeStatus}}" count="{{likeCount}}" bind:like="onLike" />
-    <v-movie img="{{classic.image}}" content="{{classic.content}}" ></v-movie>
+<view class="header">
+    <v-episode class="episode" index="{{classic.index}}" />
+    <v-like class="like" like="{{likeStatus}}" count="{{likeCount}}" bind:like="onLike" />
 </view>
+<v-movie img="{{classic.image}}" content="{{classic.content}}" />
